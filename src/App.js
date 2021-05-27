@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Editor from './components/Editor';
 
@@ -6,14 +6,22 @@ function App() {
   const [html, setHTML] = useState('');
   const [css, setCSS] = useState('');
   const [js, setJS] = useState('');
+  const [srcDoc, setSrcDoc] = useState('');
 
-  const srcDoc = `
-    <html>
-      <body>${html}</body>
-      <style>${css}</style>
-      <script>${js}</script>
-    </html>
-  `;
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDoc(`
+        <html>
+          <body>${html}</body>
+          <style>${css}</style>
+          <script>${js}</script>
+        </html>
+      `);
+    // Clean up (Remove the old setTimeout())
+    return () => clearTimeout(timeout);
+    }, 500)
+
+  }, [html, css, js])
 
   return (
     <div >
