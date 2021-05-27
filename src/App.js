@@ -22,7 +22,7 @@ function App() {
     }, 500)
 
   }, [html, css, js])
-
+  
   return (
     <div >
       <div className="pane top-pane">

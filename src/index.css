@@ -40,3 +40,13 @@ body {
     border-bottom-right-radius: .5rem;
     overflow: hidden;
 }
+
+.editor-container.collapsed {
+    /* Setting to zero will make the elment take up the least space as possible */ 
+    flex-grow: 0;
+}
+
+/* Allow the editor to reduce its width if the text is long */
+.editor-container.collapsed .CodeMirror-scroll {
+    position: absolute;
+  }
