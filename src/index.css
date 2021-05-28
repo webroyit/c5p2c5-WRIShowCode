@@ -49,4 +49,13 @@ body {
 /* Allow the editor to reduce its width if the text is long */
 .editor-container.collapsed .CodeMirror-scroll {
     position: absolute;
-  }
+    overflow: hidden !important;
+}
+
+.expand-collapse-btn {
+    margin-left: .5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
